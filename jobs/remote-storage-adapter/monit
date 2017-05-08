@@ -1,0 +1,5 @@
+check process remote-storage-adapter
+  with pidfile /var/vcap/sys/run/remote-storage-adapter/remote-storage-adapter.pid
+  start program "/var/vcap/jobs/remote-storage-adapter/bin/monit_debugger remote-storage-adapter_ctl '/var/vcap/jobs/remote-storage-adapter/bin/ctl start'"
+  stop program "/var/vcap/jobs/remote-storage-adapter/bin/monit_debugger remote-storage-adapter_ctl '/var/vcap/jobs/remote-storage-adapter/bin/ctl stop'"
+  group vcap

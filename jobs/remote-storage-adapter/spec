@@ -1,0 +1,27 @@
+---
+name: remote-storage-adapter
+packages:
+- remote-storage-adapter
+templates:
+  bin/ctl.erb: bin/ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+
+properties:
+  graphite-address:
+    description: "Graphite address (ex: localhost:8080)"
+    default: ""
+  opentsdb-url:
+    description: "OpenTSDB URL (ex: http://localhost:8081/)"
+    default: ""
+  influxdb-url:
+    description: "InfluxDB URL (ex: http://localhost:8086/)"
+    default: ""
+  influxdb-database:
+    description: "InfluxDB Database"
+    default: "prometheus"
+  influxdb-retention-policy:
+    description: "InfluxDB Retention Policy"
+    default: "autogen"

@@ -1,0 +1,5 @@
+---
+name: remote-storage-adapter
+dependencies: []
+files:
+- remote-storage-adapter/remote_storage_adapter
