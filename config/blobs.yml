@@ -3,3 +3,7 @@ remote-storage-adapter/remote_storage_adapter:
   object_id: 13040cc4-e16c-405e-b2ff-b3da49f16cbb
   sha: f68f8e0a3c3a3dd2c3ae995a918b07908d1ac24b
   size: 11126409
+remote-storage-adapter/remote_storage_adapter.tar.gz:
+  object_id: 40f99dfb-8834-4d08-a972-8421e7614a48
+  sha: 49bbfd70a8138b677e196a0839e1d6760822d2ea
+  size: 3580313
