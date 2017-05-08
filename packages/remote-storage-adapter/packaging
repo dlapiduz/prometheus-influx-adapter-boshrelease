@@ -8,4 +8,4 @@ CPUS=$(grep -c ^processor /proc/cpuinfo)
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 export HOME=/var/vcap
 
-cp -a remote-storage-adapter/remote_storage_adapter $BOSH_INSTALL_TARGET/
+tar xfz remote-storage-adapter/remote_storage_adapter.tar.gz -C $BOSH_INSTALL_TARGET/

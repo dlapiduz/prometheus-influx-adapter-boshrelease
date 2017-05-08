@@ -2,4 +2,4 @@
 name: remote-storage-adapter
 dependencies: []
 files:
-- remote-storage-adapter/remote_storage_adapter
+- remote-storage-adapter/remote_storage_adapter.tar.gz
