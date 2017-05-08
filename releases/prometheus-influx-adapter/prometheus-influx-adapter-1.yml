@@ -1,0 +1,24 @@
+---
+packages:
+- name: remote-storage-adapter
+  version: f3ba4a606b06bd3a19d050a00128231dd43c61f7
+  fingerprint: f3ba4a606b06bd3a19d050a00128231dd43c61f7
+  sha1: 9b1a3246e25458cdc494b2438151114f9257faff
+  dependencies: []
+jobs:
+- name: just_install_packages
+  version: dbbec7903e56eada46d341e6b8f8909969582cce
+  fingerprint: dbbec7903e56eada46d341e6b8f8909969582cce
+  sha1: e6a8faeeb82ebf403743ddc467fd0c062103d305
+- name: remote-storage-adapter
+  version: 9721b25facde54e7e906f2c3c843af0b5ce8e728
+  fingerprint: 9721b25facde54e7e906f2c3c843af0b5ce8e728
+  sha1: 7405d99fc935003e737ad63374e7bbaaf32c19ab
+license:
+  version: 9099bcdc982005887994db1ec249429436a99a5b
+  fingerprint: 9099bcdc982005887994db1ec249429436a99a5b
+  sha1: d65fa69c50fa8f55e57edb4213e31284b5e4c02a
+commit_hash: '009d7f3c'
+uncommitted_changes: true
+name: prometheus-influx-adapter
+version: '1'
