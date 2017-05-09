@@ -21,7 +21,7 @@ case $1 in
         <% if p('graphite-address') != "" -%>
          --graphite-address "<%= p('graphite-address') %>" \
         <% end -%>
-        <% if p('opentsdb-url') -%>
+        <% if p('opentsdb-url') != "" -%>
          --opentsdb-url "<%= p('opentsdb-url') %>" \
         <% end -%>
         <% if p('influxdb-url') != "" -%> 
