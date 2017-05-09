@@ -25,7 +25,6 @@ case $1 in
          --influxdb.retention-policy "<%= p('influxdb-retention-policy') %>" \
          <% end -%>
          >>$LOG_DIR/$JOB_NAME.log 2>&1
-
     ;;
 
   stop)
