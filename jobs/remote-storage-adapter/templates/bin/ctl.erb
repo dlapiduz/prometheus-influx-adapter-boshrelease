@@ -6,6 +6,20 @@ set -u # report the usage of uninitialized variables
 # Setup env vars and folders for the webapp_ctl script
 source /var/vcap/jobs/remote-storage-adapter/helpers/ctl_setup.sh 'remote-storage-adapter'
 
+
+<% 
+params = []
+
+params << "--graphite-address #{p('graphite-address')}" if p('graphite-address') != ""
+params << "--opentsdb-url #{p('opentsdb-url')}" if p('opentsdb-url') != ""
+if p('influxdb-url') != ""
+  params << "--influxdb-url #{p('influxdb-url')}"
+  params << "--influxdb.database #{p('influxdb-database')}"
+  params << "--influxdb.retention-policy #{p('influxdb-retention-policy')}"
+end
+
+%>
+
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
 
@@ -17,14 +31,7 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec chpst -u vcap:vcap /var/vcap/packages/remote-storage-adapter/remote_storage_adapter \ <% if p('graphite-address') != "" -%>
-         --graphite-address "<%= p('graphite-address') %>" \ <% end -%><% if p('opentsdb-url') != "" -%>
-         --opentsdb-url "<%= p('opentsdb-url') %>" \ <% end -%><% if p('influxdb-url') != "" -%> 
-         --influxdb-url "<%= p('influxdb-url') %>" \
-         --influxdb.database "<%= p('influxdb-database') %>" \
-         --influxdb.retention-policy "<%= p('influxdb-retention-policy') %>" \
-         <% end -%>
-         >>$LOG_DIR/$JOB_NAME.log 2>&1
+    exec chpst -u vcap:vcap /var/vcap/packages/remote-storage-adapter/remote_storage_adapter <%= params.join(" ") %> >>$LOG_DIR/$JOB_NAME.log 2>&1
     ;;
 
   stop)
