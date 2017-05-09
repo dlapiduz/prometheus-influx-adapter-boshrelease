@@ -24,4 +24,4 @@ properties:
     default: "prometheus"
   influxdb-retention-policy:
     description: "InfluxDB Retention Policy"
-    default: "autogen"
+    default: "default"

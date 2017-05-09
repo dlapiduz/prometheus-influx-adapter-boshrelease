@@ -17,18 +17,12 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec chpst -u vcap:vcap /var/vcap/packages/remote-storage-adapter/remote_storage_adapter \
-        <% if p('graphite-address') != "" -%>
-         --graphite-address "<%= p('graphite-address') %>" \
-        <% end -%>
-        <% if p('opentsdb-url') != "" -%>
-         --opentsdb-url "<%= p('opentsdb-url') %>" \
-        <% end -%>
-        <% if p('influxdb-url') != "" -%> 
+    exec chpst -u vcap:vcap /var/vcap/packages/remote-storage-adapter/remote_storage_adapter \ <% if p('graphite-address') != "" -%>
+         --graphite-address "<%= p('graphite-address') %>" \ <% end -%><% if p('opentsdb-url') != "" -%>
+         --opentsdb-url "<%= p('opentsdb-url') %>" \ <% end -%><% if p('influxdb-url') != "" -%> 
          --influxdb-url "<%= p('influxdb-url') %>" \
          --influxdb.database "<%= p('influxdb-database') %>" \
-         --influxdb.retention-policy "<%= p('influxdb-retention-policy') %>" \
-        <% end -%>
+         --influxdb.retention-policy "<%= p('influxdb-retention-policy') %>" \ <% end -%>
          >>$LOG_DIR/$JOB_NAME.log 2>&1
 
     ;;
