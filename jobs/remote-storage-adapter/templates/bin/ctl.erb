@@ -18,16 +18,16 @@ case $1 in
     echo $$ > $PIDFILE
 
     exec chpst -u vcap:vcap /var/vcap/packages/remote-storage-adapter/remote_storage_adapter \
-        <% if_p('graphite-address') do |graphite_address| -%>
-         --graphite-address "<%= graphite_address %>" \
+        <% if p('graphite-address') != "" -%>
+         --graphite-address "<%= p('graphite-address') %>" \
         <% end -%>
-        <% if_p('opentsdb-url') do |opentsdb_url| -%>
-         --opentsdb-url "<%= opentsdb_url %>" \
+        <% if p('opentsdb-url') -%>
+         --opentsdb-url "<%= p('opentsdb-url') %>" \
         <% end -%>
-        <% if_p('influxdb-url', 'influxdb-database', 'influxdb-retention-policy') do |influxdb_url, influxdb_database, influxdb_retention_policy| %>
-         --influxdb-url "<%= influxdb_url %>" \
-         --influxdb-database "<%= influxdb_database %>" \
-         --influxdb-retention-policy "<%= influxdb_retention_policy %>" \
+        <% if p('influxdb-url') != "" -%> 
+         --influxdb-url "<%= p('influxdb-url') %>" \
+         --influxdb.database "<%= p('influxdb-database') %>" \
+         --influxdb.retention-policy "<%= p('influxdb-retention-policy') %>" \
         <% end -%>
          >>$LOG_DIR/$JOB_NAME.log 2>&1
 
